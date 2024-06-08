@@ -1,0 +1,42 @@
+{
+    "register_interpolation": {
+        "interpolation_1": {
+            "text": "Gizlilik Politikasını",
+            "slug": "true"
+        },
+        "interpolation_2": {
+            "text": ",",
+            "slug": "false"
+        },
+        "interpolation_3": {
+            "text": "Aydınlatma Metnini",
+            "slug": "true"
+        },
+        "interpolation_4": {
+            "text": " ve ",
+            "slug": "false"
+        },
+        "interpolation_5": {
+            "text": "KVKK Metnini",
+            "slug": "true"
+        },
+        "interpolation_6": {
+            "text": " okudum, anladım ve onaylıyorum.",
+            "slug": "false"
+        }
+    },
+    "sms_interpolation": {
+        "interpolation_1": {
+            "text": "# ile biten numaranıza bir kod gönderdik. Bu kodun süresi ",
+            "slug": "false"
+        },
+        "interpolation_2": {
+            "text": "@",
+            "slug": "true"
+        },
+        "interpolation_3": {
+            "text": " saniye içinde dolacak",
+            "slug": "false"
+        }
+    }
+}
