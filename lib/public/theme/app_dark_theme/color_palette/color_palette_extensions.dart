@@ -46,4 +46,10 @@ class DarkColors implements AppColors {
 
   @override
   Color get modalRedColor => const Color(0xffE64848);
+  
+  @override
+  Color get backButtonBg => const Color(0xffF9FAFA);
+
+  @override
+  Color get backButtonStroke => const Color(0xffE9E9E9);
 }

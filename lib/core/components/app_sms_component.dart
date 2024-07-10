@@ -256,27 +256,28 @@ class _GetSmsCodeWidgetState extends State<GetSmsCodeWidget> with CodeAutoFill {
               SizedBox(
                 height: 30.h,
               ),
-              AppButton(
-                onPressed: () async {
-                  setAppBusy(
-                    true,
-                    child: const AppSuccessWidget(
-                      title: "Kod Doğrulama Başarılı",
-                      description:
-                          "Yeni şifre oluşturma ekranına yönlendiriliyorsunuz. Lütfen Bekleyin.",
-                    ),
-                    barrierDismissible: true,
-                  );
-                },
-                child: Text(
-                  "Kodu Doğrula",
-                  style: TextStyle(
-                    color: context.appThemeExtensions.colors.whiteTextColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+              ValueListenableBuilder(
+                  valueListenable: controller,
+                  builder: (context, ctrl, child) {
+                    return AppButton(
+                      onPressed: (ctrl.text.length < widget.pinCount)
+                          ? null
+                          : () async {
+                              if (await widget.onVerified(controller.text)) {
+                                router.pop(result: true);
+                              }
+                            },
+                      child: Text(
+                        "Kodu Doğrula",
+                        style: TextStyle(
+                          color:
+                              context.appThemeExtensions.colors.whiteTextColor,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    );
+                  }),
               SizedBox(
                 height: 20.h,
               ),

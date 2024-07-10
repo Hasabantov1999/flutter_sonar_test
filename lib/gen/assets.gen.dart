@@ -836,12 +836,17 @@ class $AssetsImagesGen {
   AssetGenImage get loginBottomImage =>
       const AssetGenImage('assets/images/login_bottom_image.png');
 
+  /// File path: assets/images/qr_loading_bg.png
+  AssetGenImage get qrLoadingBg =>
+      const AssetGenImage('assets/images/qr_loading_bg.png');
+
   /// File path: assets/images/splash_logo.png
   AssetGenImage get splashLogo =>
       const AssetGenImage('assets/images/splash_logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [homeCar, loginBottomImage, splashLogo];
+  List<AssetGenImage> get values =>
+      [homeCar, loginBottomImage, qrLoadingBg, splashLogo];
 }
 
 class $AssetsIntroduceGen {
@@ -902,6 +907,18 @@ class $AssetsLottiesGen {
 class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
+  /// File path: assets/svgs/add_card.svg
+  String get addCard => 'assets/svgs/add_card.svg';
+
+  /// File path: assets/svgs/app_language.svg
+  String get appLanguage => 'assets/svgs/app_language.svg';
+
+  /// File path: assets/svgs/app_permissions.svg
+  String get appPermissions => 'assets/svgs/app_permissions.svg';
+
+  /// File path: assets/svgs/back_button.svg
+  String get backButton => 'assets/svgs/back_button.svg';
+
   /// File path: assets/svgs/dashboard_nav_home.svg
   String get dashboardNavHome => 'assets/svgs/dashboard_nav_home.svg';
 
@@ -910,6 +927,12 @@ class $AssetsSvgsGen {
 
   /// File path: assets/svgs/dashboard_nav_settings.svg
   String get dashboardNavSettings => 'assets/svgs/dashboard_nav_settings.svg';
+
+  /// File path: assets/svgs/down_line.svg
+  String get downLine => 'assets/svgs/down_line.svg';
+
+  /// File path: assets/svgs/edit_icon.svg
+  String get editIcon => 'assets/svgs/edit_icon.svg';
 
   $AssetsSvgsHomeGen get home => const $AssetsSvgsHomeGen();
 
@@ -924,22 +947,42 @@ class $AssetsSvgsGen {
 
   $AssetsSvgsMapGen get map => const $AssetsSvgsMapGen();
 
+  /// File path: assets/svgs/remove_icon.svg
+  String get removeIcon => 'assets/svgs/remove_icon.svg';
+
   /// File path: assets/svgs/right_arrow.svg
   String get rightArrow => 'assets/svgs/right_arrow.svg';
+
+  $AssetsSvgsSettingsGen get settings => const $AssetsSvgsSettingsGen();
 
   /// File path: assets/svgs/sms_success.svg
   String get smsSuccess => 'assets/svgs/sms_success.svg';
 
+  /// File path: assets/svgs/station_charge.svg
+  String get stationCharge => 'assets/svgs/station_charge.svg';
+
+  /// File path: assets/svgs/theme.svg
+  String get theme => 'assets/svgs/theme.svg';
+
   /// List of all assets
   List<String> get values => [
+        addCard,
+        appLanguage,
+        appPermissions,
+        backButton,
         dashboardNavHome,
         dashboardNavMap,
         dashboardNavSettings,
+        downLine,
+        editIcon,
         leftArrow,
         loginBottomImage,
         logo,
+        removeIcon,
         rightArrow,
-        smsSuccess
+        smsSuccess,
+        stationCharge,
+        theme
       ];
 }
 
@@ -1037,6 +1080,80 @@ class $AssetsSvgsMapGen {
         search,
         star,
         type2Dc
+      ];
+}
+
+class $AssetsSvgsSettingsGen {
+  const $AssetsSvgsSettingsGen();
+
+  /// File path: assets/svgs/settings/setting_premium_3months.svg
+  String get settingPremium3months =>
+      'assets/svgs/settings/setting_premium_3months.svg';
+
+  /// File path: assets/svgs/settings/setting_premium_6months.svg
+  String get settingPremium6months =>
+      'assets/svgs/settings/setting_premium_6months.svg';
+
+  /// File path: assets/svgs/settings/setting_shuffle.svg
+  String get settingShuffle => 'assets/svgs/settings/setting_shuffle.svg';
+
+  /// File path: assets/svgs/settings/settings_account_settings.svg
+  String get settingsAccountSettings =>
+      'assets/svgs/settings/settings_account_settings.svg';
+
+  /// File path: assets/svgs/settings/settings_app_settings.svg
+  String get settingsAppSettings =>
+      'assets/svgs/settings/settings_app_settings.svg';
+
+  /// File path: assets/svgs/settings/settings_billing_accounts.svg
+  String get settingsBillingAccounts =>
+      'assets/svgs/settings/settings_billing_accounts.svg';
+
+  /// File path: assets/svgs/settings/settings_cards.svg
+  String get settingsCards => 'assets/svgs/settings/settings_cards.svg';
+
+  /// File path: assets/svgs/settings/settings_date.svg
+  String get settingsDate => 'assets/svgs/settings/settings_date.svg';
+
+  /// File path: assets/svgs/settings/settings_exit.svg
+  String get settingsExit => 'assets/svgs/settings/settings_exit.svg';
+
+  /// File path: assets/svgs/settings/settings_help.svg
+  String get settingsHelp => 'assets/svgs/settings/settings_help.svg';
+
+  /// File path: assets/svgs/settings/settings_history.svg
+  String get settingsHistory => 'assets/svgs/settings/settings_history.svg';
+
+  /// File path: assets/svgs/settings/settings_kwh.svg
+  String get settingsKwh => 'assets/svgs/settings/settings_kwh.svg';
+
+  /// File path: assets/svgs/settings/settings_notifications.svg
+  String get settingsNotifications =>
+      'assets/svgs/settings/settings_notifications.svg';
+
+  /// File path: assets/svgs/settings/settings_pockets.svg
+  String get settingsPockets => 'assets/svgs/settings/settings_pockets.svg';
+
+  /// File path: assets/svgs/settings/settings_process.svg
+  String get settingsProcess => 'assets/svgs/settings/settings_process.svg';
+
+  /// List of all assets
+  List<String> get values => [
+        settingPremium3months,
+        settingPremium6months,
+        settingShuffle,
+        settingsAccountSettings,
+        settingsAppSettings,
+        settingsBillingAccounts,
+        settingsCards,
+        settingsDate,
+        settingsExit,
+        settingsHelp,
+        settingsHistory,
+        settingsKwh,
+        settingsNotifications,
+        settingsPockets,
+        settingsProcess
       ];
 }
 

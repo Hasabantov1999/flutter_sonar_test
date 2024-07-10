@@ -3,9 +3,12 @@ import 'package:get_it/get_it.dart';
 import 'package:tripy_ev_stable/app/view/app.dart';
 import 'package:tripy_ev_stable/app/view_model/app_view_model.dart';
 import 'package:tripy_ev_stable/config.dart';
+import 'package:tripy_ev_stable/providers/auth_providers/auth_http_provider.dart';
+import 'package:tripy_ev_stable/providers/auth_providers/auth_mock_provider.dart';
 import 'package:tripy_ev_stable/providers/location_providers/location_geolocator_provider.dart';
 import 'package:tripy_ev_stable/providers/transaction_providers/transaction_http_provider.dart';
 import 'package:tripy_ev_stable/providers/transaction_providers/transaction_mock_provider.dart';
+import 'package:tripy_ev_stable/repositories/auth_repository.dart';
 import 'package:tripy_ev_stable/repositories/location_repository.dart';
 import 'package:tripy_ev_stable/repositories/transaction_repository.dart';
 
@@ -13,6 +16,7 @@ import 'package:tripy_ev_stable/routes/__init__.dart';
 import 'package:tripy_ev_stable/routes/keys.dart';
 
 import 'package:tripy_ev_stable/services/app_theme_service.dart';
+import 'package:tripy_ev_stable/services/auth_service.dart';
 import 'package:tripy_ev_stable/services/firebase_notification_service.dart';
 
 import 'package:tripy_ev_stable/services/firebase_service.dart';
@@ -97,6 +101,14 @@ class DependencyInjection {
         provider: GetProvider(
           http: TransactionHttpProvider(),
           mock: TransactionMockProvider(),
+        ),
+      ),
+    );
+        _addInjection<AuthRepository>(
+      provider: AuthService(
+        provider: GetProvider(
+          http: AuthHttpProvider(),
+          mock: AuthMockProvider(),
         ),
       ),
     );

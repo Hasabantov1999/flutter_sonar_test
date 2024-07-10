@@ -99,13 +99,18 @@ class _AppLoadingWidgetState extends State<AppLoadingWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Lottie.asset(
-                                    Assets.lotties.loading,
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Lottie.asset(
+                                        Assets.lotties.loading,
+                                      ),
+                                      const Positioned(
+                                        bottom: 100,
+                                        child:  AppLoadingBar(),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20.h,
-                                  ),
-                                  const AppLoadingBar(),
                                   if (opacityVal['message'] != null)
                                     SizedBox(
                                       height: 13.h,

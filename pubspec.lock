@@ -354,13 +354,29 @@ packages:
     source: hosted
     version: "2.0.1"
   dio:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: dio
-      sha256: "11e40df547d418cc0c4900a9318b26304e665da6fa4755399a9ff9efd09034b5"
+      sha256: e17f6b3097b8c51b72c74c9f071a605c47bcc8893839bd66732457a5ebe73714
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.3+1"
+    version: "5.5.0+1"
+  dio_web_adapter:
+    dependency: transitive
+    description:
+      name: dio_web_adapter
+      sha256: "36c5b2d79eb17cdae41e974b7a8284fec631651d2a6f39a8a2ff22327e90aeac"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -845,14 +861,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-  idb_shim:
-    dependency: transitive
-    description:
-      name: idb_shim
-      sha256: cf1b3870ad63a6f5393edb351a9c9364e739731f2176c27f44d9645327c2cdd5
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.2"
   intl:
     dependency: "direct main"
     description:
@@ -937,18 +945,18 @@ packages:
     dependency: transitive
     description:
       name: leak_tracker
-      sha256: "3f87a60e8c63aecc975dda1ceedbc8f24de75f09e4856ea27daf8958f2f0ce05"
+      sha256: "7f0df31977cb2c0b88585095d168e689669a2cc9b97c309665e3386f3e9d341a"
       url: "https://pub.dev"
     source: hosted
-    version: "10.0.5"
+    version: "10.0.4"
   leak_tracker_flutter_testing:
     dependency: transitive
     description:
       name: leak_tracker_flutter_testing
-      sha256: "932549fb305594d82d7183ecd9fa93463e9914e1b67cacc34bc40906594a1806"
+      sha256: "06e98f569d004c1315b991ded39924b21af84cf14cc94791b8aea337d25b57f8"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5"
+    version: "3.0.3"
   leak_tracker_testing:
     dependency: transitive
     description:
@@ -966,13 +974,13 @@ packages:
     source: hosted
     version: "2.1.1"
   logger:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: logger
-      sha256: "7ad7215c15420a102ec687bb320a7312afd449bac63bfb1c60d9787c27b9767f"
+      sha256: af05cc8714f356fd1f3888fb6741cbe9fbe25cdb6eedbab80e1a6db21047d4a4
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.0"
+    version: "2.3.0"
   logging:
     dependency: transitive
     description:
@@ -1009,18 +1017,18 @@ packages:
     dependency: transitive
     description:
       name: material_color_utilities
-      sha256: f7142bb1154231d7ea5f96bc7bde4bda2a0945d2806bb11670e30b850d56bdec
+      sha256: "0e0a020085b65b6083975e499759762399b4475f766c21668c4ecca34ea74e5a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.11.1"
+    version: "0.8.0"
   meta:
     dependency: transitive
     description:
       name: meta
-      sha256: "25dfcaf170a0190f47ca6355bdd4552cb8924b430512ff0cafb8db9bd41fe33b"
+      sha256: "7687075e408b093f36e6bbf6c91878cc0d4cd10f409506f7bc996f68220b9136"
       url: "https://pub.dev"
     source: hosted
-    version: "1.14.0"
+    version: "1.12.0"
   mime:
     dependency: transitive
     description:
@@ -1277,8 +1285,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
-  retry:
+  qr_code_scanner:
     dependency: "direct main"
+    description:
+      name: qr_code_scanner
+      sha256: f23b68d893505a424f0bd2e324ebea71ed88465d572d26bb8d2e78a4749591fd
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
+  retry:
+    dependency: transitive
     description:
       name: retry
       sha256: "822e118d5b3aafed083109c72d5f484c6dc66707885e07c0fbcb8b986bba7efc"
@@ -1301,22 +1317,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
-  sembast:
-    dependency: "direct main"
-    description:
-      name: sembast
-      sha256: "9a9f0c7aca07043fef857b8b365f41592e48832b61462292699b57978e241c11"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.6.0"
-  sembast_web:
-    dependency: "direct main"
-    description:
-      name: sembast_web
-      sha256: "1ba0402b9491b76312358ec3cb3a33b9fc22eb673d4f9a3e99b2425135add72c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   sentry:
     dependency: transitive
     description:
@@ -1334,7 +1334,7 @@ packages:
     source: hosted
     version: "7.20.1"
   shared_preferences:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shared_preferences
       sha256: d3bbe5553a986e83980916ded2f0b435ef2e1893dfaa29d5a7a790d0eca12180
@@ -1550,10 +1550,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "2419f20b0c8677b2d67c8ac4d1ac7372d862dc6c460cdbb052b40155408cd794"
+      sha256: "9955ae474176f7ac8ee4e989dadfb411a58c30415bcfb648fa04b2b8a03afa7f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.1"
+    version: "0.7.0"
   theme_extensions_builder:
     dependency: "direct dev"
     description:
@@ -1722,6 +1722,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  vexana:
+    dependency: "direct main"
+    description:
+      name: vexana
+      sha256: "774fdf99da0f7a54da40ad8a7f802b3cd309dbca5a280f650f740d8c201cfd81"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.4"
   video_player:
     dependency: transitive
     description:
@@ -1766,10 +1774,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "7475cb4dd713d57b6f7464c0e13f06da0d535d8b2067e188962a59bac2cf280b"
+      sha256: "3923c89304b715fb1eb6423f017651664a03bf5f4b29983627c4da791f74a4ec"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.2"
+    version: "14.2.1"
   wakelock_plus:
     dependency: "direct main"
     description:

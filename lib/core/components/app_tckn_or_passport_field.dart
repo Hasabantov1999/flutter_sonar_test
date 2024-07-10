@@ -8,8 +8,10 @@ class AppTcknOrPassportNumberField extends StatefulWidget {
   const AppTcknOrPassportNumberField({
     super.key,
     this.controller,
+    this.validateLabel,
   });
   final TextEditingController? controller;
+  final String? validateLabel;
   @override
   State<AppTcknOrPassportNumberField> createState() =>
       _AppTcknOrPassportNumberFieldState();
@@ -91,6 +93,7 @@ class _AppTcknOrPassportNumberFieldState
         return AppLabelTextField(
           controller: controller,
           onChanged: (text) => listenTextField(text),
+          validateLabel: widget.validateLabel,
           label: "TCKN veya Pasaport Numarası",
           hint: "11111111111 | UU-1234567",
           inputFormatters: frmtrs,

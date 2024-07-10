@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tripy_ev_stable/core/components/app_button.dart';
-import 'package:tripy_ev_stable/injection.dart';
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
+import 'package:tripy_ev_stable/utils/keyboard_utils.dart';
 
 class AppKeyboardWidget extends StatelessWidget {
   const AppKeyboardWidget(
@@ -35,8 +35,7 @@ class AppKeyboardWidget extends StatelessWidget {
             width: 80.w,
             height: 45.w,
             onPressed: () =>
-                FocusScope.of(router.initialKey.currentState!.context)
-                    .unfocus(),
+                       KeyboardClose(),
             child: Icon(
               Icons.keyboard_arrow_down_outlined,
               color: context.appThemeExtensions.colors.whiteColor,

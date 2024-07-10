@@ -1,9 +1,11 @@
 // ignore_for_file: avoid_relative_lib_imports
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tripy_ev_stable/utils/developer_log_utils.dart';
 
-import '../../../default_modules/vexana/lib/vexana.dart';
+import 'package:tripy_ev_stable/utils/developer_log_utils.dart';
+import 'package:vexana/vexana.dart';
+
+
 
 part 'response_schema.g.dart';
 

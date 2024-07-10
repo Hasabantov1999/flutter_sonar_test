@@ -12,7 +12,7 @@ import 'package:tripy_ev_stable/public/radius/app_radius_palette.dart';
 import 'package:tripy_ev_stable/public/shadows/app_shadow_palette.dart';
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
 import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/components/app_station_mini_widget.dart';
-import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/components/filter_modal_view.dart';
+import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/screens/filter/view/filter_modal_view.dart';
 import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/viewmodel/map_view_model.dart';
 
 class MapTopSearchBar extends ViewModelWidget<MapViewModel> {

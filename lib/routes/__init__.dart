@@ -7,6 +7,8 @@ import 'package:tripy_ev_stable/routes/transitions.dart';
 import 'package:tripy_ev_stable/utils/developer_log_utils.dart';
 import 'dart:ui' as ui;
 
+import 'package:tripy_ev_stable/utils/keyboard_utils.dart';
+
 class Routes {
   final Widget mobile;
   final String path;
@@ -44,7 +46,7 @@ class Router {
   }
 
   void navigate([GlobalKey<NavigatorState>? key, String? path]) {
-    FocusScope.of((key ?? initialKey).currentState!.context).unfocus();
+           KeyboardClose();
     (key ?? initialKey).currentState!.popUntil(
       (route) {
         if (route.settings.name != (path ?? '/')) {
@@ -152,7 +154,7 @@ class Router {
   }
 
   void cleanFocus({GlobalKey<NavigatorState>? key}) {
-    FocusScope.of((key ?? initialKey).currentContext!).unfocus();
+           KeyboardClose();
   }
 
   Future<T?> modalPush<T>(Widget page, {GlobalKey<NavigatorState>? key}) async {

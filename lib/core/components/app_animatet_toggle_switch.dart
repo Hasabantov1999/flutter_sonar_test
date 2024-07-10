@@ -11,11 +11,13 @@ class AppAnimatedToggleSwitch extends StatelessWidget {
     this.onChanged,
     required this.tabTitles,
     this.fontSize,
+    this.indicatorWidth,
   });
   final int index;
   final ChangeCallback<int>? onChanged;
   final List<String> tabTitles;
   final double? fontSize;
+  final double? indicatorWidth;
   @override
   Widget build(BuildContext context) {
     List<int> values = [];
@@ -51,7 +53,7 @@ class AppAnimatedToggleSwitch extends StatelessWidget {
             ),
         ],
         iconOpacity: 1,
-        indicatorSize: Size.fromWidth(150.w),
+        indicatorSize: Size.fromWidth(indicatorWidth ?? 130.w),
         borderWidth: 4.0,
         iconAnimationType: AnimationType.onHover,
         style: ToggleStyle(

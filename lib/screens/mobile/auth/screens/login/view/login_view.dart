@@ -11,6 +11,7 @@ import 'package:tripy_ev_stable/injection.dart';
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
 import 'package:tripy_ev_stable/routes/routes.dart';
 import 'package:tripy_ev_stable/screens/mobile/auth/screens/login/viewmodel/login_view_model.dart';
+import 'package:tripy_ev_stable/services/validator_service.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -70,16 +71,34 @@ class LoginView extends StatelessWidget {
                     SizedBox(
                       height: 24.h,
                     ),
-                    const AppLabelTextField(
+                    AppLabelTextField(
                       label: "E-Posta Adresiniz",
                       hint: "abc@example.com",
+                      validateLabel: "loginEmail",
+                      validator: (val) {
+                        final emailRegex =
+                            RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                        if (emailRegex.hasMatch(val ?? "")) {
+                          return null;
+                        }
+                        return "Lütfen doğru bir e-posta giriniz";
+                      },
+                      controller: viewModel.emailController,
                     ),
                     SizedBox(
                       height: 13.h,
                     ),
-                    const AppLabelTextField(
-                      label: "Şifreniz",
+                    AppLabelTextField(
+                      label: "Yeni Şifreniz",
+                      validateLabel: "forgetPassword",
                       password: true,
+                      validator: (val) {
+                        if ((val?.length ?? 0) < 6) {
+                          return "Minumum 6 hane olmalıdır";
+                        }
+                        return null;
+                      },
+                      controller: viewModel.passwordController,
                     ),
                     SizedBox(
                       height: 13.h,
@@ -104,20 +123,23 @@ class LoginView extends StatelessWidget {
                     SizedBox(
                       height: 13.h,
                     ),
-                    AppButton(
-                      onPressed: () => router.go(
-                        AppRoutes.DASHBOARD.route,
-                      ),
-                      child: Text(
-                        "GİRİŞ YAP",
-                        style: TextStyle(
-                          color:
-                              context.appThemeExtensions.colors.whiteTextColor,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+                    ValueListenableBuilder(
+                        valueListenable: AppValidateForm,
+                        builder: (context, validate, child) {
+                          return AppButton(
+                            onPressed:
+                                !validate ? null : () => viewModel.login(),
+                            child: Text(
+                              "GİRİŞ YAP",
+                              style: TextStyle(
+                                color: context
+                                    .appThemeExtensions.colors.whiteTextColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          );
+                        }),
                     SizedBox(
                       height: 13.h,
                     ),

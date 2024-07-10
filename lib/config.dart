@@ -20,9 +20,12 @@ class Config {
   double FigmaHeight = double.parse(dotenv.env['FIGMA_HEIGHT'] ?? "0");
   String BackOffice = dotenv.env['BACK_OFFICE'] ?? "";
   String DebugBackOffice = dotenv.env['DEBUG_BACK_OFFICE'] ?? "";
+    String Auth = dotenv.env['AUTH'] ?? "";
+  String DebugAuth = dotenv.env['DEBUG_AUTH'] ?? "";
   String DirectionApiUrl = dotenv.env['GOOGLE_DIRECTIONS_BASE_URL'] ?? "";
   String GoogleMapApiKey = dotenv.env['GOOGLE_TOKEN'] ?? "";
   String languagePath= dotenv.env['LANGUAGE-PATH'] ?? "";
+    String companyKey= dotenv.env['COMPANY-KEY'] ?? "";
 }
 
 extension ConfigExtension on Config {

@@ -8,13 +8,16 @@ import 'package:stacked/stacked.dart';
 import 'package:tripy_ev_stable/core/components/app_square_button.dart';
 
 import 'package:tripy_ev_stable/gen/assets.gen.dart';
+import 'package:tripy_ev_stable/injection.dart';
 import 'package:tripy_ev_stable/public/radius/app_radius_palette.dart';
 
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
 import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/components/map_top_components.dart';
+import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/screens/qr/view/map_qr_view.dart';
 import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/styles/map_light_style.dart';
 import 'package:tripy_ev_stable/screens/mobile/dashboard/screens/map/viewmodel/map_view_model.dart';
 import 'package:tripy_ev_stable/services/location_service.dart';
+import 'package:tripy_ev_stable/utils/keyboard_utils.dart';
 import 'package:tripy_ev_stable/utils/safe_app_busy_utils.dart';
 
 class MapView extends StatelessWidget {
@@ -50,6 +53,9 @@ class MapView extends StatelessWidget {
                               : LocationService.miaLocation.long!,
                         ),
                       ),
+                      onTap: (position) {
+                        KeyboardClose();
+                      },
                       onMapCreated: (controller) {
                         viewModel.mapController = controller;
                         viewModel.mapController.setMapStyle(
@@ -66,7 +72,9 @@ class MapView extends StatelessWidget {
                           children: [
                             AppSquareButton(
                               onPressed: () {
-                                
+                                router.modalPush(
+                                  const MapQrView(),
+                                );
                               },
                               path: Assets.svgs.map.qr,
                               shape: RoundedRectangleBorder(

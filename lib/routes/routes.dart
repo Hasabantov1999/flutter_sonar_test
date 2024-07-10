@@ -5,6 +5,7 @@ import 'package:tripy_ev_stable/routes/guards/dashboard_guard.dart';
 import 'package:tripy_ev_stable/routes/guards/location_guard.dart';
 import 'package:tripy_ev_stable/routes/guards/login_guard.dart';
 import 'package:tripy_ev_stable/routes/guards/map_guard.dart';
+import 'package:tripy_ev_stable/routes/guards/token_guard.dart';
 import 'package:tripy_ev_stable/screens/mobile/auth/screens/forget_password/view/forget_password_view.dart';
 import 'package:tripy_ev_stable/screens/mobile/auth/screens/login/view/login_view.dart';
 import 'package:tripy_ev_stable/screens/mobile/auth/screens/register/view/register_view.dart';
@@ -32,7 +33,10 @@ enum AppRoutes {
   LOGIN(
     route: Routes(
       mobile: LoginView(),
-      routeGuard: LoginGuard,
+      multipleRouteGuard: [
+        LoginGuard,
+        TokenGuard,
+      ],
       path: "/login",
     ),
   ),

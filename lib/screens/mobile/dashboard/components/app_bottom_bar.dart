@@ -11,6 +11,7 @@ import 'package:tripy_ev_stable/injection.dart';
 import 'package:tripy_ev_stable/public/radius/app_radius_palette.dart';
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
 import 'package:tripy_ev_stable/screens/mobile/dashboard/viewmodel/dashboard_view_model.dart';
+import 'package:tripy_ev_stable/utils/keyboard_utils.dart';
 
 class AppBottomNavBar extends ViewModelWidget<DashboardViewModel> {
   const AppBottomNavBar({
@@ -25,10 +26,10 @@ class AppBottomNavBar extends ViewModelWidget<DashboardViewModel> {
       left: false,
       right: false,
       child: Padding(
-        padding: EdgeInsets.only(bottom: 13.h),
+        padding: EdgeInsets.only(bottom: 13.w),
         child: Container(
           margin: context.initialHorizantalPadding,
-          height: 62.h,
+          height: 62.w,
           decoration: BoxDecoration(
             border: Border.all(
               color: context.appThemeExtensions.colors.navBarBorder,
@@ -76,7 +77,7 @@ class AppBottomNavBarItem extends ViewModelWidget<DashboardViewModel> {
           return TextButton(
             onPressed: () {
               viewModel.tabIndex.value = index;
-              FocusScope.of(context).unfocus();
+              KeyboardClose();
               router.navigate(viewModel.dashboardNavigator);
             },
             child: Row(

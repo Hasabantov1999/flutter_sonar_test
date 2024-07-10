@@ -2,11 +2,24 @@
 
 extension StringExtension on String {
   String get Purify {
-    return replaceAll(" ", "")
-        .replaceAll("(", "")
-        .replaceAll(")", "")
+    return replaceAll(
+      " ",
+      "",
+    )
+        .replaceAll(
+          "(",
+          "",
+        )
+        .replaceAll(
+          ")",
+          "",
+        )
         .replaceAll(
           "-",
+          "",
+        )
+        .replaceAll(
+          "+",
           "",
         );
   }

@@ -16,12 +16,20 @@ import 'package:tripy_ev_stable/public/radius/app_radius_palette.dart';
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
 import 'package:tripy_ev_stable/schemas/local/app_country_schema/app_country_schema.dart';
 import 'package:tripy_ev_stable/utils/developer_error_log_utils.dart';
+import 'package:tripy_ev_stable/utils/keyboard_utils.dart';
 
 List<AppCountrySchema> _countrys = [];
 
 class AppPhonePickerField extends StatefulWidget {
-  const AppPhonePickerField({super.key});
-
+  const AppPhonePickerField({
+    super.key,
+    this.controller,
+    this.onChanged,
+    this.validateLabel,
+  });
+  final TextEditingController? controller;
+  final ValueChanged<AppCountrySchema>? onChanged;
+  final String? validateLabel;
   @override
   State<AppPhonePickerField> createState() => _AppPhonePickerFieldState();
 }
@@ -70,8 +78,15 @@ class _AppPhonePickerFieldState extends State<AppPhonePickerField> {
   }
 
   void notify() {
+    onChanged();
     if (mounted) {
       setState(() {});
+    }
+  }
+
+  void onChanged() {
+    if (widget.onChanged != null) {
+      widget.onChanged!(country);
     }
   }
 
@@ -79,6 +94,7 @@ class _AppPhonePickerFieldState extends State<AppPhonePickerField> {
     for (var country in _countrys) {
       if (country.callingCode == "+90") {
         this.country = country;
+
         isInitialized = true;
         notify();
       }
@@ -90,6 +106,14 @@ class _AppPhonePickerFieldState extends State<AppPhonePickerField> {
     return AppLabelTextField(
       label: "Telefon Numaranız",
       hint: "(555)-555-55-55",
+      controller: widget.controller,
+      validateLabel: widget.validateLabel,
+      validator: (val) {
+        if ((val?.length ?? 0) < 15) {
+          return "Lütfen doğru bir telefon numarası giriniz";
+        }
+        return null;
+      },
       inputFormatters: [
         MaskTextInputFormatter(
           mask: '(###) ###-##-##',
@@ -112,7 +136,7 @@ class _AppPhonePickerFieldState extends State<AppPhonePickerField> {
             )
           : CupertinoButton(
               onPressed: () async {
-                FocusScope.of(context).unfocus();
+                KeyboardClose();
                 final res = await router.modalPush(
                   _CountryPicker(
                     initial: country,
@@ -120,6 +144,7 @@ class _AppPhonePickerFieldState extends State<AppPhonePickerField> {
                 );
                 if (res is AppCountrySchema) {
                   country = res;
+
                   notify();
                 }
               },

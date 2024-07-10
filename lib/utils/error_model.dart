@@ -2,9 +2,8 @@
 
 import 'package:tripy_ev_stable/schemas/http/response_schema/response_schema.dart';
 
-ResponseSchema ErrorSchemaBuilder(Map<String, dynamic> data, int? statusCode) {
+ResponseSchema ErrorSchemaBuilder(Map<String, dynamic> data) {
   return ResponseSchema().set(
     data,
-    status: statusCode,
   );
 }

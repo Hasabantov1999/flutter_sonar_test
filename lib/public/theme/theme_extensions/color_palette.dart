@@ -16,4 +16,6 @@ abstract interface class AppColors {
   Color get navBarBackground;
   Color get dividerColor;
   Color get modalRedColor;
+  Color get backButtonBg;
+  Color get backButtonStroke;
 }

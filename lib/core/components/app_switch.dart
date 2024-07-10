@@ -21,6 +21,7 @@ class AppSwitch extends StatelessWidget {
           inactiveThumbColor: context.appThemeExtensions.colors.whiteColor,
           inactiveTrackColor:
               context.appThemeExtensions.colors.textPassiveColor,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onChanged: (val) {
             swtch.value = val;
             if (onChanged != null) {

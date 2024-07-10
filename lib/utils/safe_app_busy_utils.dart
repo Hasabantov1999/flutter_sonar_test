@@ -1,6 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -18,9 +17,7 @@ Future<T?> SafeAppBusy<T>(
   try {
     setAppBusy(true);
     if (!(await _checkConnectivity())) {
-      if (_networkState.currentContext != null) {
-
-      }
+      if (_networkState.currentContext != null) {}
       setAppBusy(false);
     }
     Future.delayed(const Duration(seconds: 30), () {
@@ -29,8 +26,10 @@ Future<T?> SafeAppBusy<T>(
       }
     });
     final result = await process();
-    if (result is ResponseSchema) {
-      final res = result.message;
+    if (result is ResponseSchema?) {
+      print("burada");
+      final res = result?.message;
+      print(res);
       if (res is String) {
         AppTopAlert.show(description: res);
       } else if (res is List) {

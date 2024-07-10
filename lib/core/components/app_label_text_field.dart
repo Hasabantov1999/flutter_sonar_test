@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tripy_ev_stable/public/theme/theme_extensions/app_theme_extensions.dart';
+import 'package:tripy_ev_stable/services/validator_service.dart';
 
 class AppLabelTextField extends StatelessWidget {
   const AppLabelTextField({
@@ -16,6 +17,12 @@ class AppLabelTextField extends StatelessWidget {
     this.onChanged,
     this.inputFormatters,
     this.validator,
+    this.onEditingComplete,
+    this.keyboardType,
+    this.textInputAction,
+    this.minLines,
+    this.maxLines,
+    this.validateLabel,
   });
   final String? hint;
   final String label;
@@ -27,6 +34,12 @@ class AppLabelTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
+  final VoidCallback? onEditingComplete;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
+  final int? minLines;
+  final int? maxLines;
+  final String? validateLabel;
   @override
   Widget build(BuildContext context) {
     ValueNotifier<bool> obscure = ValueNotifier(password);
@@ -45,6 +58,11 @@ class AppLabelTextField extends StatelessWidget {
                   cursorColor: context.appThemeExtensions.colors.primary,
                   inputFormatters: inputFormatters,
                   obscureText: passVal,
+                  keyboardType: keyboardType,
+                  textInputAction: textInputAction,
+                  onEditingComplete: onEditingComplete,
+                  minLines: minLines,
+                  maxLines: maxLines ?? 1,
                   validator: validator == null
                       ? null
                       : (val) {
@@ -54,8 +72,21 @@ class AppLabelTextField extends StatelessWidget {
                           }
                           final res = validator!(val);
                           if (res == null) {
+                            if (validateLabel != null) {
+                              SetAppValidate(
+                                label: validateLabel!,
+                                validate: true,
+                              );
+                            }
+
                             isValidate.value = true;
                           } else {
+                            if (validateLabel != null) {
+                              SetAppValidate(
+                                label: validateLabel!,
+                                validate: false,
+                              );
+                            }
                             isValidate.value = false;
                           }
                           return res;
